@@ -8,6 +8,7 @@ before(() => {//visit localhost3000
   // en test suite
 describe('Frontend test suite 1', function(){
 
+     //test setup
     beforeEach(() => {
 
         cy.get(':nth-child(1) > input').type('tester01') //type in username
