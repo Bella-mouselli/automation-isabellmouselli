@@ -9,21 +9,26 @@ const roomInput = ':nth-child(4) > select'
 const billInput = ':nth-child(5) > select'
 const saveButton = 'a.btn:nth-child(2)'
 
+//delete reservation
+const editDeleteMenu =':nth-child(1) > .action > img'//menu
+const deleteButton='.menu > :nth-child(2)' //deleting the room
+
 // actions/functions
 
 function createNewReservation(startD, endD, client, room, bill) {
-    cy.contains('Reservations')
-    cy.get('h2 > .btn').click()
+    cy.contains('Reservations') //check the right page
+    cy.get('h2 > .btn').click() //create new
     cy.contains('New Reservation')
 
-    cy.get(startDate).type(startD)
-    cy.get(endDate).type(endD)
+    cy.get(startDate).type(startD) //type in field for start date
+    cy.get(endDate).type(endD) //field for end date
 
-    cy.get(clientInput).select(client)
-    cy.get(roomInput).select(room)
-    cy.get(billInput).select(bill)
+    cy.get(clientInput).select(client) // select client for reservation
+    cy.get(roomInput).select(room) //select room
+    cy.get(billInput).select(bill) //Select room 
 
-    cy.get(saveButton).click()
+    cy.get(saveButton).click()// save the new reservation
+  
 }
 
 

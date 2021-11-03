@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-
+//imports all the js files
 import * as loginFuncs from '../pages/loginPage'
 import * as dashboardfuncs from '../pages/dashboardPage'
 import * as roomsFuncs from '../pages/roomsPage'
@@ -19,17 +19,17 @@ describe('Frontend test suite 1', function(){
 
      //test setup
     beforeEach(() => {
-        loginFuncs.performValidLogin(cy)
+        loginFuncs.performValidLogin(cy)// login before new test 
 
     })
 
         afterEach(() => {
-            cy.get('.user > .btn').click() //log out
+            cy.get('.user > .btn').click() //log out after test
           })
           
           it('checkAllRooms', function(){
-              dashboardfuncs.goToRooms(cy)
-              dashboardfuncs.backToOverview(cy)
+              dashboardfuncs.goToRooms(cy)// views page rooms 
+              dashboardfuncs.backToOverview(cy)//goes back to dashboard page
 
               dashboardfuncs.goToClients(cy)
               dashboardfuncs.backToOverview(cy)
@@ -41,9 +41,9 @@ describe('Frontend test suite 1', function(){
               dashboardfuncs.backToOverview(cy)
           })
 
-    it('Create new room', function () {
+    it('Create new room', function () { // creates a new room
 
-        let category = 1
+        let category = 1//gives the category field its value
         let roomNumber = 5
         let floor = 4
         let available = true
@@ -59,7 +59,7 @@ describe('Frontend test suite 1', function(){
 
     it('New Client', function () {
 
-        let name = 'Isabell Mouselli'
+        let name = 'Isabell Mouselli'// types in isabell mouselli in the input field for name
         let email = 'Mouselli@hotmail.com'
         let tel = '1234567890'
 
@@ -72,7 +72,7 @@ describe('Frontend test suite 1', function(){
     it('New Bill', function () {
 
         let value = 500
-        let paid = true
+        let paid = true//checks the checkbox field
 
         dashboardfuncs.goToBills()
         billsFuncs.createNewBill(value, paid)
@@ -90,10 +90,11 @@ describe('Frontend test suite 1', function(){
 
         dashboardfuncs.goToReservations()
         reservationsFuncs.createNewReservation(startD, endD, client, room, bill)
-        cy.contains('.card', startD, endD)
+        cy.contains('div.card', startD, endD)
         dashboardfuncs.backToOverview()
 
     })
+  
     
 
 })
