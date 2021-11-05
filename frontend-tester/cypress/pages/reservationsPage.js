@@ -9,9 +9,6 @@ const roomInput = ':nth-child(4) > select'
 const billInput = ':nth-child(5) > select'
 const saveButton = 'a.btn:nth-child(2)'
 
-//delete reservation
-const editDeleteMenu =':nth-child(1) > .action > img'//menu
-const deleteButton='.menu > :nth-child(2)' //deleting the room
 
 // actions/functions
 
